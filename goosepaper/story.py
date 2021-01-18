@@ -25,7 +25,7 @@ class Story:
         self.placement_preference = placement_preference
 
     def to_html(self) -> str:
-        byline_h4 = f"<h4 class='byline'>{self.byline}</h4>" if self.byline else ""
+        byline_h4 = f"<span class='byline'>{self.byline}</span>" if self.byline else ""
         priority_class = {
             StoryPriority.DEFAULT: "",
             StoryPriority.LOW: "priority-low",

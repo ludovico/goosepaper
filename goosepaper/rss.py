@@ -1,5 +1,6 @@
 import requests
 import feedparser
+import random
 from typing import List
 from readability import Document
 
@@ -18,7 +19,10 @@ class RSSFeedStoryProvider(StoryProvider):
         limit = min(self.limit, len(feed.entries))
         stories = []
 
-        for entry in feed.entries[:limit]:
+        randomized_entries = feed.entries
+        random.shuffle(randomized_entries);
+
+        for entry in randomized_entries[:limit]:
             if "link" in entry.keys():
                 req = requests.get(entry["link"])
                 if not req.ok:

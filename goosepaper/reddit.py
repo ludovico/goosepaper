@@ -28,7 +28,7 @@ class RedditHeadlineStoryProvider(StoryProvider):
                     body_text=entry.title,
                     byline=f"{author} in r/{self.subreddit}",
                     date=entry.updated_parsed,
-                    placement_preference=PlacementPreference.SIDEBAR,
+                    placement_preference=PlacementPreference.NONE,
                 )
             )
         return stories

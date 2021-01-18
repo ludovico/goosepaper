@@ -53,7 +53,7 @@ class TwitterStoryProvider(StoryProvider):
                 body_text=clean_text(row.tweet),
                 byline=f"@{self.username} on Twitter at {pd.to_datetime(row.date).strftime('%I:%M %p')}",
                 date=pd.to_datetime(row.date),
-                placement_preference=PlacementPreference.SIDEBAR,
+                placement_preference=PlacementPreference.NONE,
             )
             for i, row in list(df.iterrows())[: min(self.limit, limit)]
         ]

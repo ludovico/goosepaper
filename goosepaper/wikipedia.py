@@ -37,6 +37,6 @@ class WikipediaCurrentEventsStoryProvider(StoryProvider):
                 headline=title,
                 body_html=str(content),
                 byline="Wikipedia Current Events",
-                placement_preference=PlacementPreference.BANNER,
+                placement_preference=PlacementPreference.NONE,
             )
         ]

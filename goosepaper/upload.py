@@ -3,6 +3,7 @@ from pathlib import Path
 
 from rmapy.document import ZipDocument
 from rmapy.api import Client
+from rmapy.folder import Folder
 from rmapy.exceptions import AuthError
 
 
@@ -35,13 +36,25 @@ def upload(filepath=None):
         else:
             print("registration successful")
 
+    folder = None
     for item in client.get_meta_items():
+        if item.VissibleName == "Papers":
+            folder = Folder(ID=item.ID)
+
         if item.VissibleName == filepath.stem:
             print("Honk! Paper already exists!")
             return False
 
+    if not folder:
+        print("creating folder")
+        folder = Folder("Papers")
+        client.create_folder(folder)
+
     doc = ZipDocument(doc=str(filepath.resolve()))
-    if client.upload(doc):
+    items = client.get_meta_items()
+
+    if client.upload(doc, to=folder):
+    #if client.upload(doc):
         print("Honk! Upload successful!")
     else:
         print("Honk! Error with upload!")

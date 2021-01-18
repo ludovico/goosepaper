@@ -46,7 +46,7 @@ class AutumnStyle(Style):
     }
 
     .stories {
-        font-size: 16pt;
+        font-size: 14pt;
     }
 
     .ear article {
@@ -88,7 +88,7 @@ class AutumnStyle(Style):
         margin-bottom: 0.15em;
     }
 
-    article>h4.byline {
+    article>span.byline {
         font-family: "Oswald";
         font-size: 12pt;
         font-weight: 400;
@@ -127,7 +127,7 @@ class AutumnStyle(Style):
     }
 
     .row {
-        column-count: 2;
+        column-count: 1;
     }
 
     /*
